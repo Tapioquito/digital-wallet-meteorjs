@@ -21,5 +21,8 @@ Meteor.methods({
     check(contactId, String)
     if(this.isSimulation)
     return ContactsCollection.remove(contactId)
-  }
+  },
+  'contacts.archive'({contactId}){
+    check(contactId,String)
+    ContactsCollection.update({_id:contactId},{$set:{archived:true}})}
 });

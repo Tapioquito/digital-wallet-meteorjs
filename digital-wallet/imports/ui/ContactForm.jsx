@@ -1,4 +1,4 @@
-import Meteor from "meteor/meteor";
+import { Meteor } from "meteor/meteor";
 import React from "react";
 
 import { ErrorAlert } from "./components/ErrorAlert";
@@ -10,15 +10,16 @@ export const ContactForm = () => {
   const [imageUrl, setImageUrl] = React.useState("");
   const [errorMessage, setErrorMessage] = React.useState("");
   const [successMessage, setSuccessMessage] = React.useState("");
+  
   const showError=({message})=>{
     setErrorMessage(message);
     setTimeout(() => {
       setErrorMessage("");
     }, 3000);
   }
-const showSuccess = ({message}) =>{
-
-  setSuccessMessage("Contact saved successfully")
+  const showSuccess = ({message}) =>{
+    
+    setSuccessMessage(message)
   setTimeout(() => {
     setSuccessMessage("");
   }, 3000);
@@ -31,7 +32,7 @@ const showSuccess = ({message}) =>{
         setName("");
         setEmail("");
         setImageUrl("");
-        showSuccess();
+        showSuccess({ message: "Contact saved." });
       }
     });
   }
