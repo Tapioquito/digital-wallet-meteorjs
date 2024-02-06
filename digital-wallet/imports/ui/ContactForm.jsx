@@ -38,7 +38,7 @@ const showSuccess = ({message}) =>{
 
   return (
     <form className="mt-6">
-      { error &&
+      { errorMessage &&
           <ErrorAlert message={errorMessage}/>}
       { successMessage &&
           <SuccessAlert message={successMessage}/>}
